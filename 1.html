@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é JavaScript?</title>
+    <style>
+        #div1{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>O que é JavaScript?</h1>
+    <p>O JavaScript foi criado originalmente no Netscape por Brendan Eich, em 1995,<br>
+         com o objetivo principal de trazer interatividade e dinamismo às páginas <br>
+          web diretamente no navegador (o lado do cliente). Antes dele, as páginas eram <br>
+        estáticas e qualquer validação ou mudança de conteúdo exigia uma nova requisição ao servidor.</p>
+        <h1>Cronômetro</h1>
+        <button id="bt">COMEÇAR</button>
+        <div id="div1">
+        <p id="id1">00</p><p>:</p><p id="id2">00</p><p>:</p><p id="id3">00</p><p>.</p><p id="id4">000</p>
+        </div>
+    
+        <script>
+            let i=null;
+            let bt=document.getElementById("bt");
+            bt.addEventListener("click",comecar);
+            function comecar(){
+                if(i==null){
+                i=setInterval(() => {
+                let hora=new Date();
+                let horas=document.getElementById("id1");
+                horas.innerHTML=hora.getHours();
+                document.getElementById("id2").innerHTML=hora.getMinutes();
+                document.getElementById("id3").innerHTML=hora.getSeconds();
+                document.getElementById("id4").innerHTML=hora.getMilliseconds();
+                }, 1);
+                    bt.innerText="PARAR";
+                }
+                else{
+                   clearInterval(i);
+                    i=null;
+                       bt.innerText="COMECAR";
+                }
+                
+            }
+        </script>
+</body>
+</html>
