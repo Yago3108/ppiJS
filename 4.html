@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questao 4</title>
+    <style>
+        body{
+            justify-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculo IMC</h1>
+    <div>
+    <p>Altura(em cm):</p>
+    <input type="number" id="altura">
+    <p>Peso(em kg):</p>
+    <input type="number" id="peso">
+    </div>
+    <br>
+    <div><button onclick="calculo()" id="btCalculo">Calcular IMC</button></div>
+    <br>
+    <p id="resultado"></p>
+    <div><img id="imc" src="questao4img/perfil.jpg" alt=""></div>
+<script>
+    function calculo(){
+        let altura=parseFloat(document.getElementById("altura").value);
+        let peso=parseFloat(document.getElementById("peso").value);
+        let calculo =peso/((altura/100)*(altura/100));
+
+        
+        if(calculo<=18.5){
+            document.getElementById("resultado").innerHTML="Abaixo do peso:"+calculo.toFixed(2);
+            document.getElementById("imc").src="questao4img/abaixopeso.png"
+        }
+         if(calculo>18.5 && calculo<=24.9){
+            document.getElementById("resultado").innerHTML="Peso ideal:"+calculo.toFixed(2);
+            document.getElementById("imc").src="questao4img/normal.png"
+        }
+         if(calculo>24.9 && calculo<=29.9){
+            document.getElementById("resultado").innerHTML="Sobrepeso:"+calculo.toFixed(2);
+            document.getElementById("imc").src="questao4img/sobrepeso.png"
+        }
+         if(calculo>=30 && calculo<=34.9){
+            document.getElementById("resultado").innerHTML="Obesidade grau 1:"+calculo.toFixed(2);
+            document.getElementById("imc").src="questao4img/obesidade1.png"
+        }
+          if(calculo>=35 && calculo<=39.9){
+            document.getElementById("resultado").innerHTML="Obesidade grau 2:"+calculo.toFixed(2);
+            document.getElementById("imc").src="questao4img/obesidade2.png"
+        }
+          if(calculo>=40){
+            document.getElementById("resultado").innerHTML="Obesidade grau 3:"+calculo.toFixed(2);
+            document.getElementById("imc").src="questao4img/obesidade3.png"
+        }
+    }
+</script>
+    
+</body>
+</html>
